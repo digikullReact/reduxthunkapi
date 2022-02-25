@@ -17,6 +17,12 @@ function Show() {
 
     const columns = [
         {
+            title: 'Id',
+            dataIndex: '_id',
+            key: '_id',
+
+        },
+        {
             title: 'Title',
             dataIndex: 'title',
             key: 'title',
@@ -56,7 +62,10 @@ function Show() {
     return (
         <div  style={{marginLeft:"80px"}}>
             <h1>Notes Data</h1>
-            <Table columns={columns} dataSource={apiData} />
+            <Table pagination={{ pageSize: 5 }}
+                   rowKey={record => record._id}
+
+                   columns={columns} dataSource={apiData} />
         </div>
     );
 }
