@@ -47,3 +47,19 @@ export const deleteNotes = createAsyncThunk(
         return response.data
     }
 )
+
+
+export const editNotes = createAsyncThunk(
+    'notes/editNotes',
+    async (data) => {
+
+        const config={
+            headers:{
+                "auth-token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIxOGRjZTFjZTRmMDM0MTk5MjI3MDg5In0sImlhdCI6MTY0NTc5NjU3N30.cb_jx-n7mvOUC2ZcAOZ8U2AXl6nf76rgHjBETFsu_NM"
+            }
+
+        }
+        const response = await axios.put(`http://localhost:8000/api/notes/updatenote/${data._id}`,data,config)
+        return response.data
+    }
+)

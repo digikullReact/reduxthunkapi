@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {createNotes, deleteNotes, getNotes} from "../thunks";
+import {createNotes, deleteNotes, getNotes,editNotes} from "../thunks";
 
 const initialState = {
 
@@ -70,6 +70,29 @@ export const notesSlice = createSlice({
 
 
         }).addCase(deleteNotes.rejected,(state,action)=>{
+
+
+        });
+
+
+        builder.addCase(editNotes.fulfilled, (state, action) => {
+            
+            state.notes=state.notes.filter(ele=>ele._id!=action.payload.note._id);
+            state.notes.push(action.payload.note)
+
+         
+
+         //   state.notes=state.notes.filter(ele=>ele._id!=action.payload.note._id)
+
+
+
+            // Her we will get the data ---->
+
+
+        }).addCase(editNotes.pending,(state,action)=>{
+
+
+        }).addCase(editNotes.rejected,(state,action)=>{
 
 
         })
