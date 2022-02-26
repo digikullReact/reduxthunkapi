@@ -1,6 +1,6 @@
 import React ,{useState} from  "react";
 import { Input ,Button,Alert} from 'antd';
-import {createNotes} from "../thunks";
+import {createNotes,getNotes} from "../thunks";
 import {useDispatch} from "react-redux";
 import {checkDescription, checkTag, checkTitle} from "../utils/customvalidation";
 
@@ -39,6 +39,8 @@ function Add() {
                   status:true
 
               })
+
+              //dispatch(getNotes())
 
               setState(initialState)
 

@@ -18,12 +18,19 @@ export const notesSlice = createSlice({
         // Add reducers for additional action types here, and handle loading state as needed
         builder.addCase(createNotes.fulfilled, (state, action) => {
 
+         
+
+            state.notes=[...action.payload]
+
+            // 
+
 
         }).addCase(createNotes.pending,(state,action)=>{
 
 
 
         }).addCase(createNotes.rejected,(state,action)=>{
+            state.notes.length=0;
 
 
         });

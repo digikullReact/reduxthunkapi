@@ -1,11 +1,12 @@
-import React,{useEffect} from  "react";
+import React,{useEffect,useState} from  "react";
 import { Table, Tag, Space } from 'antd';
 import {useDispatch,useSelector} from "react-redux";
-import {getNotes} from "../thunks";
+import {getNotes,deleteNotes} from "../thunks";
 
 
 
 function Show() {
+    const [state,setState]=useState(false);
 
     const dispatch =useDispatch();
     const apiData=useSelector(state=>state.notes.notes)
@@ -13,7 +14,15 @@ function Show() {
     useEffect(()=>{
         dispatch(getNotes())
 
-    },[])
+    },[state])
+
+    const deleteData=(id)=>{
+        dispatch(deleteNotes(id)).then(data=>{
+            alert("Data Deleted");
+            setState(!state);
+        })
+
+    }
 
     const columns = [
         {
@@ -51,8 +60,8 @@ function Show() {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a>Invite {record.name}</a>
-                    <a>Delete</a>
+                    <a>Edit {record.name}</a>
+                    <a onClick={()=>deleteData(record._id)}>Delete</a>
                 </Space>
             ),
         },
