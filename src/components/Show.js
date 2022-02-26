@@ -14,12 +14,12 @@ function Show() {
     useEffect(()=>{
         dispatch(getNotes())
 
-    },[state])
+    },[])
 
     const deleteData=(id)=>{
         dispatch(deleteNotes(id)).then(data=>{
             alert("Data Deleted");
-            setState(!state);
+         
         })
 
     }

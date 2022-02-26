@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {createNotes, getNotes} from "../thunks";
+import {createNotes, deleteNotes, getNotes} from "../thunks";
 
 const initialState = {
 
@@ -18,9 +18,9 @@ export const notesSlice = createSlice({
         // Add reducers for additional action types here, and handle loading state as needed
         builder.addCase(createNotes.fulfilled, (state, action) => {
 
-         
+        
 
-            state.notes=[...action.payload]
+            state.notes.push(action.payload)
 
             // 
 
@@ -30,7 +30,7 @@ export const notesSlice = createSlice({
 
 
         }).addCase(createNotes.rejected,(state,action)=>{
-            state.notes.length=0;
+            
 
 
         });
@@ -50,6 +50,26 @@ export const notesSlice = createSlice({
 
 
         }).addCase(getNotes.rejected,(state,action)=>{
+
+
+        });
+
+
+        builder.addCase(deleteNotes.fulfilled, (state, action) => {
+
+         
+
+            state.notes=state.notes.filter(ele=>ele._id!=action.payload.note._id)
+
+
+
+            // Her we will get the data ---->
+
+
+        }).addCase(deleteNotes.pending,(state,action)=>{
+
+
+        }).addCase(deleteNotes.rejected,(state,action)=>{
 
 
         })

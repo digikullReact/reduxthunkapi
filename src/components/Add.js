@@ -48,7 +48,7 @@ function Add() {
           }).catch(err=>{
 
               setAlerts({
-                  message:"Error In Creating Notes",
+                  message:"Error In Creating Notes"+err,
                   type:"error",
                   status:true
 
