@@ -27,9 +27,17 @@ const Login = () => {
 
     const loginApp=()=>{
       dispatch(login(state)).then(data=>{
+       if(!data.error){
         setState(initState);
         // Move to another page
         navigate("/show");
+
+       }
+       else{
+        alert("Wrong Username Password");
+       }
+      
+       
       })
 
     }
