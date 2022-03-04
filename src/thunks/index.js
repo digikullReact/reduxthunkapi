@@ -63,3 +63,23 @@ export const editNotes = createAsyncThunk(
         return response.data
     }
 )
+
+export const login = createAsyncThunk(
+    'notes/login',
+    async (data) => {
+
+       
+        const response = await axios.post('http://localhost:8000/api/auth/login',data)
+        return response.data
+    }
+)
+
+export const signup = createAsyncThunk(
+    'notes/signup',
+    async (data) => {
+
+       
+        const response = await axios.post('http://localhost:8000/api/auth/singup',data)
+        return response.data
+    }
+)

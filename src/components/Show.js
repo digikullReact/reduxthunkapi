@@ -111,7 +111,7 @@ function Show() {
 
 
     return (
-        <div  style={{marginLeft:"80px"}}>
+        <div  >
 
             <h1>Notes Data</h1>
             <Table pagination={{ pageSize: 5 }}
