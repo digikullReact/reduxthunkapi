@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Header from './components/Header';
 import PrivateRoute from './components/PrivateRoute';
+import CovidData from './components/CovidData';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
               </PrivateRoute>
             }/>
       <Route path="/login" element={<Login />}/>
+      <Route path="/covid" element={<CovidData />}/>
       <Route path="/signup" element={<Signup />}/>
         
     </Routes>
