@@ -26,11 +26,11 @@ const Header = () => {
     subTitle="Please Login To Continue"
     extra={[
       
-        <Button key="3"  style={ !tokenExists ? { display:'none'} : {}} onClick={()=>moveToPage("/login")}>Login</Button>,
-        <Button key="2" style={ !tokenExists ? { display:'none'} : {}} onClick={()=>moveToPage("/signup")}>Signup</Button>,
-        <Button key="4"  style={ tokenExists ? { display:'none'} : {}} onClick={()=>moveToPage("/add")}>Add</Button>,
-        <Button key="5" style={ tokenExists ? { display:'none'} : {}} onClick={()=>moveToPage("/show")}>Show</Button>,
-        <Button key="6" style={ tokenExists ? { display:'none'} : {}} onClick={logout}>Logout</Button>,
+        <Button key="3"  style={ tokenExists ? { display:'none'} : {}} onClick={()=>moveToPage("/login")}>Login</Button>,
+        <Button key="2" style={ tokenExists ? { display:'none'} : {}} onClick={()=>moveToPage("/signup")}>Signup</Button>,
+        <Button key="4"  style={ !tokenExists ? { display:'none'} : {}} onClick={()=>moveToPage("/add")}>Add</Button>,
+        <Button key="5" style={ !tokenExists ? { display:'none'} : {}} onClick={()=>moveToPage("/show")}>Show</Button>,
+        <Button key="6" style={ !tokenExists ? { display:'none'} : {}} onClick={logout}>Logout</Button>,
        
       ]}
   />

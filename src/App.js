@@ -11,6 +11,7 @@ import {
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Header from './components/Header';
+import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
@@ -22,8 +23,16 @@ function App() {
 <Header/>
 
     <Routes>
-      <Route path="/add" element={<Add />}/>
-      <Route path="/show" element={<Show />}/>
+      <Route path="/add" element={
+              <PrivateRoute>
+                <Add />
+              </PrivateRoute>
+            }/>
+      <Route path="/show" element={
+              <PrivateRoute>
+                <Show />
+              </PrivateRoute>
+            }/>
       <Route path="/login" element={<Login />}/>
       <Route path="/signup" element={<Signup />}/>
         

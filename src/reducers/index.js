@@ -21,7 +21,7 @@ export const notesSlice = createSlice({
     // Add reducers for additional action types here, and handle loading state as needed
     builder
       .addCase(createNotes.fulfilled, (state, action) => {
-        state.notes.push(action.payload);
+       // state.notes.push(action.payload);
 
         //
       })
